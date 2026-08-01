@@ -1,0 +1,40 @@
+classDiagram
+  class ComplaintRouter {
+    +POST /complaints
+    +GET /complaints/id
+    +PATCH /complaints/id/status
+  }
+  class ComplaintService {
+    +submit_complaint()
+    +assign_officer()
+    +update_status()
+  }
+  class ComplaintRepository {
+    +get_by_id(id)
+    +create(complaint)
+    +update_status(id, status)
+    +list_by_officer(officer_id)
+  }
+  class ComplaintModel {
+    +int id
+    +int citizen_id
+    +int officer_id
+    +string status
+    +datetime created_at
+  }
+  class ComplaintCreateSchema {
+    +string title
+    +string description
+    +float latitude
+    +float longitude
+  }
+  class ComplaintResponseSchema {
+    +int id
+    +string status
+    +datetime created_at
+  }
+  ComplaintRouter --> ComplaintService : calls
+  ComplaintRouter --> ComplaintCreateSchema : validates with
+  ComplaintRouter --> ComplaintResponseSchema : returns
+  ComplaintService --> ComplaintRepository : calls
+  ComplaintRepository --> ComplaintModel : queries
