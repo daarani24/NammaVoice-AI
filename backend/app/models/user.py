@@ -13,7 +13,7 @@ class User(Base):
     phone=Column(String, nullable=True)
     role=Column(String, nullable=False)
 
-    department_id=Column(Integer, ForeignKey("department_id"), nullable=True)
+    department_id=Column(Integer, ForeignKey("departments.id"), nullable=True)
     district_id=Column(Integer, ForeignKey("districts.id"), nullable=True)
 
     created_at=Column(DateTime(timezone=True), server_default=func.now())
