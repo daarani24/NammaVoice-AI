@@ -1,8 +1,7 @@
-backend/venv/
-
-backend/.env
-
+.env
 __pycache__/
 *.pyc
-
+venv/
+env/
 .vscode/
+.DS_Store
