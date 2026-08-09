@@ -7,4 +7,5 @@ class Category(Base):
 
     id=Column(Integer, primary_key=True, index=True)
     name=Column(String, nullable=False)
-    department_id=relationship("Department")
+    department_id=Column(Integer, ForeignKey('departments.id'), nullable=False)
+    department=relationship('Department')

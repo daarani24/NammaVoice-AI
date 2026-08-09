@@ -1,0 +1,74 @@
+classDiagram
+  class AuthRouter {
+    +POST /auth/register
+    +POST /auth/login
+  }
+  class ComplaintRouter {
+    +POST /complaints
+    +GET /complaints/my
+  }
+  class OfficerRouter {
+    +GET /officer/pool
+    +POST /officer/id/accept
+    +PATCH /officer/id/status
+  }
+
+  class AuthService {
+    +register_user()
+    +login_user()
+  }
+  class ComplaintService {
+    +submit_complaint()
+    +get_my_complaints()
+    +accept_complaint()
+    +change_status()
+  }
+
+  class UserRepository {
+    +get_user_by_email()
+    +get_user_by_id()
+    +create_user()
+  }
+  class ComplaintRepository {
+    +create_complaint()
+    +get_by_id()
+    +assign_officer()
+    +update_status()
+  }
+  class StatusHistoryRepository {
+    +add_status_entry()
+  }
+
+  class UserModel {
+    +id, email, role
+    +password_hash
+  }
+  class ComplaintModel {
+    +id, status
+    +citizen_id, officer_id
+  }
+  class DistrictModel
+  class DepartmentModel
+  class CategoryModel
+  class ComplaintStatusHistoryModel
+  class ComplaintEvidenceModel
+
+  AuthRouter --> AuthService
+  ComplaintRouter --> ComplaintService
+  OfficerRouter --> ComplaintService
+
+  AuthService --> UserRepository
+  ComplaintService --> ComplaintRepository
+  ComplaintService --> StatusHistoryRepository
+
+  UserRepository --> UserModel
+  ComplaintRepository --> ComplaintModel
+  StatusHistoryRepository --> ComplaintStatusHistoryModel
+
+  ComplaintModel --> UserModel : citizen/officer FK
+  ComplaintModel --> CategoryModel : FK
+  ComplaintModel --> DepartmentModel : FK
+  ComplaintModel --> DistrictModel : FK
+  UserModel --> DistrictModel : FK
+  UserModel --> DepartmentModel : FK
+  CategoryModel --> DepartmentModel : FK
