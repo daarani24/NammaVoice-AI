@@ -1,0 +1,406 @@
+/* ================================
+   NammaVoice AI - Citizen Dashboard
+   ================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+/* ================================
+   Main Page
+   ================================ */
+
+.citizen-page {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+/* ================================
+   Header
+   ================================ */
+
+.citizen-header {
+  height: 76px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 7%;
+}
+
+.citizen-header h1 {
+  margin: 0;
+  color: #2563eb;
+  font-size: 24px;
+}
+
+.citizen-header p {
+  margin: 3px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.citizen-user {
+  background: #eff6ff;
+  color: #2563eb;
+
+  padding: 9px 16px;
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ================================
+   Container
+   ================================ */
+
+.citizen-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0 60px;
+}
+
+/* ================================
+   Welcome
+   ================================ */
+
+.welcome-section {
+  margin-bottom: 25px;
+}
+
+.welcome-section h2 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  color: #111827;
+}
+
+.welcome-section p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* ================================
+   Complaint Card
+   ================================ */
+
+.complaint-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  padding: 30px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+  margin-bottom: 35px;
+}
+
+.card-heading {
+  margin-bottom: 25px;
+}
+
+.card-heading h2 {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+
+.card-heading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ================================
+   Form
+   ================================ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #374151;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  padding: 12px 14px;
+
+  font-size: 14px;
+  font-family: inherit;
+
+  background: #ffffff;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* ================================
+   Two columns
+   ================================ */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ================================
+   Submit Button
+   ================================ */
+
+.submit-button {
+  width: 100%;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 13px 20px;
+
+  background: #2563eb;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.submit-button:hover {
+  background: #1d4ed8;
+}
+
+.submit-button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* ================================
+   Error
+   ================================ */
+
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+
+  padding: 11px 14px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+/* ================================
+   My Complaints
+   ================================ */
+
+.my-complaints {
+  margin-top: 10px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0 0 5px;
+
+  font-size: 22px;
+  color: #111827;
+}
+
+.section-heading p {
+  margin: 0;
+
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.complaint-count {
+  min-width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-weight: 700;
+}
+
+/* ================================
+   Complaint List
+   ================================ */
+
+.complaint-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.complaint-item {
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  padding: 18px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.complaint-info h3 {
+  margin: 0 0 5px;
+
+  font-size: 16px;
+  color: #111827;
+}
+
+.complaint-info p {
+  margin: 0;
+
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ================================
+   Status
+   ================================ */
+
+.status-badge {
+  background: #eff6ff;
+  color: #2563eb;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+/* ================================
+   Empty State
+   ================================ */
+
+.empty-state {
+  background: #ffffff;
+
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+
+  padding: 40px 20px;
+
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.empty-state h3 {
+  margin: 0 0 5px;
+  color: #374151;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ================================
+   Mobile
+   ================================ */
+
+@media (max-width: 700px) {
+
+  .citizen-header {
+    padding: 0 20px;
+  }
+
+  .citizen-container {
+    width: 94%;
+    padding-top: 25px;
+  }
+
+  .welcome-section h2 {
+    font-size: 25px;
+  }
+
+  .complaint-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .complaint-item {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+}
