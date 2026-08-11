@@ -1,7 +1,28 @@
-.env
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+.venv/
 venv/
-env/
+
+# Environment
+.env
+.env.local
+
+# Frontend dependencies
+node_modules/
+frontend/node_modules/
+
+# Vite build output
+dist/
+frontend/dist/
+
+# Logs
+*.log
+
+# IDE
 .vscode/
+.idea/
+
+# OS
 .DS_Store
+Thumbs.db
