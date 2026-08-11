@@ -11,9 +11,8 @@ def get_current_user(token: str=Depends(oauth2_scheme), db: Session=Depends(get_
     try:
         payload=decode_access_token(token)
         user_id=int(payload.get("sub"))
-    except Exception:
-        raise HTTPException(status_code=401, detail="Invalid or expired token")
-
+    except Exception as e:
+        raise HTTPException(status_code=401, detail=f"Token error: {str(e)}")
     user=user_repository.get_user_by_id(db, user_id)
     if not user:
         raise HTTPException(status_code=401, detail="User not found")

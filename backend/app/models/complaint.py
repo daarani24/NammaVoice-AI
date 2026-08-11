@@ -24,7 +24,8 @@ class Complaint(Base):
     updated_at=Column(DateTime(timezone=True), onupdate=func.now())
 
     citizen=relationship("User", foreign_keys=[citizen_id])
-    officer_id=relationship("user", foreign_keys=[officer_id])
+    officer=relationship("User", foreign_keys=[officer_id])
+    
     category=relationship("Category")
     department=relationship("Department")
     district=relationship("District")
