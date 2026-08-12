@@ -1,23 +1,11 @@
 flowchart TD
-  subgraph HOST1["Hosting: Vercel / Netlify (free tier)"]
-    CLIENT["Client Layer<br/>React + Tailwind<br/>(runs in citizen's / officer's browser)"]
-  end
+  CLIENT["CLIENT LAYER<br/>React + Tailwind CSS<br/>Citizen / Officer Browser"]
+  API["API LAYER<br/>FastAPI Routers<br/>Authentication | Users | Complaints"]
+  SVC["BUSINESS SERVICE LAYER<br/>auth_service | complaint_service<br/>Business Rules & Validation"]
+  REPO["REPOSITORY LAYER<br/>user_repository | complaint_repository<br/>Database Operations Only"]
+  DB[("DATABASE LAYER<br/>PostgreSQL<br/>7 Tables")]
 
-  subgraph HOST2["Hosting: Render / Railway (free tier)"]
-    API["API Layer<br/>FastAPI routers<br/>(auth, complaints, users)"]
-    SVC["Business Service Layer<br/>auth_service, complaint_service<br/>(rules: who can do what)"]
-    REPO["Repository Layer<br/>user_repository, complaint_repository<br/>(only place that talks to DB)"]
-  end
-
-  subgraph HOST3["Hosting: Neon (managed Postgres, free tier)"]
-    DB[("Database Layer<br/>PostgreSQL<br/>7 tables")]
-  end
-
-  CLIENT -- "HTTPS REST calls (Axios, JSON, JWT in header)" --> API
-  API -- "calls" --> SVC
-  SVC -- "calls" --> REPO
-  REPO -- "SQL via SQLAlchemy" --> DB
-  DB -- "rows" --> REPO
-  REPO -- "objects" --> SVC
-  SVC -- "response data" --> API
-  API -- "JSON response" --> CLIENT
+  CLIENT -- "HTTPS REST API<br/>Axios + JSON<br/>JWT in Header" --> API
+  API --> SVC
+  SVC --> REPO
+  REPO -- "SQLAlchemy ORM" --> DB
