@@ -9,9 +9,13 @@ __pycache__/
 venv/
 env/
 
-# Node / React
+# Frontend dependencies
 node_modules/
+frontend/node_modules/
+
+# Vite build
 dist/
+frontend/dist/
 
 # VS Code
 .vscode/
