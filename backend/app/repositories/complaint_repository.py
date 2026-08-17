@@ -1,3 +1,4 @@
+from sqlalchemy import func
 from app.models.complaint import Complaint
 
 def create_complaint(db, citizen_id, data):
@@ -40,3 +41,17 @@ def update_status(db, complaint, new_status):
     db.commit()
     db.refresh(complaint)
     return complaint
+
+def get_district_stats(db, district_id):
+    total=db.query(Complaint).filter(Complaint.district_id==district_id).count()
+    pending=db.query(Complaint).filter(
+        Complaint.district_id==district_id,
+        Complaint.status.in_(["submitted", "under_action"])
+    ).count()
+    completed=db.query(Complaint).filter(
+        Complaint.district_id==district_id, Complaint.status=="completed"
+    ).count()
+    return {"total": total, "pending": pending, "completed": completed}
+
+def get_all_by_district(db, district_id):
+    return db.query(Complaint).filter(Complaint.district_id==district_id).all()
