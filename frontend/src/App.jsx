@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import CitizenDashboard from "./pages/CitizenDashboard";
 import OfficerDashboard from "./pages/OfficerDashboard";
+import CollectorDashboard from "./pages/CollectorDashboard";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/citizen" element={<CitizenDashboard />} />
         <Route path="/officer" element={<OfficerDashboard />} />
+        <Route path="/collector" element={<CollectorDashboard />} />
       </Routes>
     </BrowserRouter>
   );

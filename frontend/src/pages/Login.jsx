@@ -30,11 +30,9 @@ export default function Login() {
 
       localStorage.setItem("role", me.data.role);
 
-      navigate(
-        me.data.role === "officer"
-          ? "/officer"
-          : "/citizen"
-      );
+      if (me.data.role === "officer") navigate("/officer");
+      else if (me.data.role === "collector") navigate("/collector");
+      else navigate("/citizen");
 
     } catch (err) {
       console.error("Login failed:", err.response?.data || err);
