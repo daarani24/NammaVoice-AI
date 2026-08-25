@@ -21,3 +21,7 @@ def create_user(db:Session, name:str, email:str, password_hash:str, role:str, ph
     db.refresh(user)
     return user
 
+def get_all_users(db):
+    return db.query(User).all()
+
+
