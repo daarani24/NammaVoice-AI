@@ -32,6 +32,7 @@ export default function Login() {
 
       if (me.data.role === "officer") navigate("/officer");
       else if (me.data.role === "collector") navigate("/collector");
+      else if (me.data.role === "admin") navigate("/admin");
       else navigate("/citizen");
 
     } catch (err) {
