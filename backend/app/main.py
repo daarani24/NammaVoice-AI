@@ -31,3 +31,7 @@ def read_me(current_user=Depends(get_current_user)):
         "email": current_user.email,
         "role": current_user.role
     }
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}

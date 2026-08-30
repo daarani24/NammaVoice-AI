@@ -10,3 +10,5 @@ python-dotenv
 bcrypt
 pyjwt
 cloudinary
+pytest-mock
+pytest
