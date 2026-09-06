@@ -12,3 +12,4 @@ pyjwt
 cloudinary
 pytest-mock
 pytest
+pytest-cov
