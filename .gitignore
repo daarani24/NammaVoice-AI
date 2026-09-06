@@ -2,9 +2,11 @@
 .env
 .env.*
 !.env.example
+.coverage
 
 # Python
 .pytest_cache/
+test.db
 __pycache__/
 *.pyc
 venv/
