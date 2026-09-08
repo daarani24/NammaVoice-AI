@@ -13,3 +13,4 @@ cloudinary
 pytest-mock
 pytest
 pytest-cov
+python-multipart
