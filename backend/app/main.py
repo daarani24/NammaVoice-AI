@@ -10,6 +10,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "https://namma-voice-ai.vercel.app/",
+        "https://namma-voice-67ijc245r-optimiser.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
