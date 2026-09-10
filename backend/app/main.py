@@ -9,8 +9,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://namma-voice-ai.vercel.app/",
-        "https://namma-voice-67ijc245r-optimiser.vercel.app",
+        "https://namma-voice-ai.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
