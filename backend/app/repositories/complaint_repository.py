@@ -1,7 +1,7 @@
 from sqlalchemy import func
 from app.models.complaint import Complaint
 
-def create_complaint(db, citizen_id, data):
+def create_complaint(db, citizen_id, data, predicted_category=None, priority=None, confidence_score=None):
     complaint=Complaint(
         citizen_id=citizen_id,
         title=data.title,
@@ -11,6 +11,9 @@ def create_complaint(db, citizen_id, data):
         department_id=data.department_id,
         latitude=data.latitude,
         longitude=data.longitude,
+        predicted_category=predicted_category,
+        priority=priority,
+        confidence_score=confidence_score,
     )
     db.add(complaint)
     db.commit()

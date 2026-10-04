@@ -2,9 +2,17 @@ from app.repositories import complaint_repository
 from fastapi import HTTPException
 from app.repositories import complaint_repository, status_history_repository, evidence_repository
 from app.core.cloud_storage import upload_image
+from app.services import ml_service
 
 def submit_complaint(db, current_user, data):
-    return complaint_repository.create_complaint(db, current_user.id, data)
+    prediction=ml_service.predict(data.description)
+    complaint=complaint_repository.create_complaint(
+        db, current_user.id, data,
+        predicted_category=prediction["predicted_category"],
+        priority=prediction["priority"],
+        confidence_score=prediction["confidence_score"],
+    )
+    return complaint
 
 def get_my_complaints(db, current_user):
     return complaint_repository.get_complaints_by_citizen(db, current_user.id)

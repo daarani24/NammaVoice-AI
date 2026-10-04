@@ -109,7 +109,7 @@ locations = [
     "shopping complex", "temple street", "hospital road",
 ]
 
-def generate(rows_per_class=50, output_path="ml/data/complaints_dataset.csv"):
+def generate(rows_per_class=50, output_path="ML/data/complaints_dataset.csv"):
     rows = []
     for category, priorities in templates.items():
         for priority, sentences in priorities.items():

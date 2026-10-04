@@ -22,6 +22,9 @@ class ComplaintResponse(BaseModel):
     district_id:int
     department_id:int
     created_at:datetime
+    predicted_category:Optional[str]=None
+    priority:Optional[str]=None
+    confidence_score:Optional[float]=None
 
     class Config:
         from_attributes=True

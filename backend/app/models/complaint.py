@@ -29,3 +29,7 @@ class Complaint(Base):
     category=relationship("Category")
     department=relationship("Department")
     district=relationship("District")
+
+    predicted_category=Column(String, nullable=True)
+    priority=Column(String, nullable=True)
+    confidence_score=Column(Float, nullable=True)

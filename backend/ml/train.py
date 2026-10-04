@@ -6,9 +6,9 @@ from sklearn.metrics import classification_report
 import joblib
 import os
 
-df = pd.read_csv("ml/data/complaints_dataset.csv")
+df = pd.read_csv("ML/data/complaints_dataset.csv")
 
-os.makedirs("ml/models", exist_ok=True)
+os.makedirs("ML/models", exist_ok=True)
 
 def train_and_save(label_column, output_prefix):
     X = df["text"]
@@ -29,8 +29,8 @@ def train_and_save(label_column, output_prefix):
     print(f"\n--- {output_prefix} ---")
     print(classification_report(y_test, predictions))
 
-    joblib.dump(vectorizer, f"ml/models/{output_prefix}_vectorizer.pkl")
-    joblib.dump(model, f"ml/models/{output_prefix}_model.pkl")
+    joblib.dump(vectorizer, f"ML/models/{output_prefix}_vectorizer.pkl")
+    joblib.dump(model, f"ML/models/{output_prefix}_model.pkl")
 
 train_and_save("category", "category")
 train_and_save("priority", "priority")
