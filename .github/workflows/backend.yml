@@ -23,6 +23,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Generate training data
+        run: python ML/generate_data.py
+
+      - name: Train models
+        run: python ML/train.py
+
       - name: Run tests
         run: pytest --cov=app.services
         env:

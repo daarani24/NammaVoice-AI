@@ -8,6 +8,10 @@ def test_submit(mocker):
     fake_user=MagicMock(id=1)
     fake_data=MagicMock()
     mocker.patch(
+        "app.services.complaint_service.ml_service.predict",
+        return_value={"predicted_category": "pothole", "priority": "high", "confidence_score": 0.9}
+    )
+    mocker.patch(
         "app.services.complaint_service.complaint_repository.create_complaint",
         return_value=MagicMock(id=10)
     )
