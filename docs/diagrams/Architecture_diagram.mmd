@@ -1,11 +1,26 @@
 flowchart TD
-  CLIENT["CLIENT LAYER<br/>React + Tailwind CSS<br/>Citizen / Officer Browser"]
-  API["API LAYER<br/>FastAPI Routers<br/>Authentication | Users | Complaints"]
-  SVC["BUSINESS SERVICE LAYER<br/>auth_service | complaint_service<br/>Business Rules & Validation"]
-  REPO["REPOSITORY LAYER<br/>user_repository | complaint_repository<br/>Database Operations Only"]
-  DB[("DATABASE LAYER<br/>PostgreSQL<br/>7 Tables")]
+  CLIENT["CLIENT LAYER
+React + Vite
+Hosted on Vercel"]
+  API["API LAYER
+FastAPI Routers
+Hosted on Render"]
+  SVC["BUSINESS SERVICE LAYER
+auth, complaint, collector, admin services"]
+  ML["ML SERVICE
+TF-IDF + Logistic Regression
+Category and Priority models"]
+  REPO["REPOSITORY LAYER
+Database access only"]
+  DB[("DATABASE LAYER
+PostgreSQL on Neon")]
+  STORAGE[("Cloudinary
+Image storage")]
 
-  CLIENT -- "HTTPS REST API<br/>Axios + JSON<br/>JWT in Header" --> API
+  CLIENT -- "HTTPS REST API, JWT in Header" --> API
   API --> SVC
+  SVC -- "complaint text" --> ML
+  ML -- "category, priority, confidence" --> SVC
   SVC --> REPO
   REPO -- "SQLAlchemy ORM" --> DB
+  SVC -- "Evidence photos" --> STORAGE
