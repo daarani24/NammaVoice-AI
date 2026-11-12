@@ -3,7 +3,7 @@
 **Every Citizen's Voice Matters.**
 
 ## Live Demo
-- Frontend: https://namma-voice-67ijc245r-optimiser.vercel.app
+- Frontend: https://namma-voice-8ledt4me5-optimiser.vercel.app/
 - Backend health check: https://nammavoice-ai.onrender.com/health
 - API docs (Swagger): https://nammavoice-ai.onrender.com/docs
 
